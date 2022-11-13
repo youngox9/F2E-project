@@ -825,7 +825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"animejs@npm:^3.0.1, animejs@npm:^3.2.1":
+"animejs@npm:^3.2.1":
   version: 3.2.1
   resolution: "animejs@npm:3.2.1"
   checksum: 6939171bed17d6b28307747e564d33e93312c26169b98498c833117d86f174ce7a318469bfd81716c223860a6d13bd76b761e79e765b86b2a2f851963caaa851
@@ -3197,19 +3197,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-animejs@npm:^0.5.6":
-  version: 0.5.6
-  resolution: "react-animejs@npm:0.5.6"
-  dependencies:
-    animejs: ^3.0.1
-  peerDependencies:
-    react: ^16.x
-    react-dom: ^16.x
-    react-scripts: ^3.x
-  checksum: aba56b64646f28b0f50430a7c58912df7b5abf5cddc0150ca24e4bd1dd7b203ef8666a687c050e4de96ec167cebb6e3a6b0fbbdf1fe199abcf35df8713f278d3
-  languageName: node
-  linkType: hard
-
 "react-dom@npm:17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
@@ -3220,16 +3207,6 @@ __metadata:
   peerDependencies:
     react: 17.0.2
   checksum: 1c1eaa3bca7c7228d24b70932e3d7c99e70d1d04e13bb0843bbf321582bc25d7961d6b8a6978a58a598af2af496d1cedcfb1bf65f6b0960a0a8161cb8dab743c
-  languageName: node
-  linkType: hard
-
-"react-ga@npm:^3.3.1":
-  version: 3.3.1
-  resolution: "react-ga@npm:3.3.1"
-  peerDependencies:
-    prop-types: ^15.6.0
-    react: ^15.6.2 || ^16.0 || ^17 || ^18
-  checksum: 3026976d0249fbf80e7b5dad7707964198064d7ac460f3397de40524e76dd6c29dead0900f850e2bd3135a86a9b083af8cda9cfa087f195852bf8d2b17c1fcfb
   languageName: node
   linkType: hard
 
@@ -3288,18 +3265,6 @@ __metadata:
     react: ^16.0.0-0 || ^17.0.0-0
     react-dom: ^16.0.0-0 || ^17.0.0-0
   checksum: 00db29907decbf0baa40d5a45dbd2e7b9b47b4f963e78dfd3d8b75ae6c87bace1c758a9d3ebb256e3b450204a694e3fada7175d73cc621ac2ed323abc9b54362
-  languageName: node
-  linkType: hard
-
-"react-useportal@npm:^1.0.16":
-  version: 1.0.17
-  resolution: "react-useportal@npm:1.0.17"
-  dependencies:
-    use-ssr: ^1.0.22
-  peerDependencies:
-    react: ^16.8.6 || ^17.0.0
-    react-dom: ^16.8.6 || ^17.0.0
-  checksum: 0a67060d5116653f5f1509f62e12df142df226a7af939eb75f9fa53d95500522c6821af1a983b68a34cff35b18750ab6630cf05fe8830cef86ea959ceccef45b
   languageName: node
   linkType: hard
 
@@ -3459,13 +3424,10 @@ __metadata:
     next: ^12.1.6
     next-fonts: ^1.5.1
     react: 17.0.2
-    react-animejs: ^0.5.6
     react-dom: 17.0.2
-    react-ga: ^3.3.1
     react-gsap: ^3.2.1
     react-redux: ^7.2.6
     react-scrollmagic: ^2.3.0
-    react-useportal: ^1.0.16
     redux: ^4.1.2
     sass: ^1.49.8
     scrollmagic: ^2.0.8
@@ -3996,16 +3958,6 @@ __metadata:
     file-loader:
       optional: true
   checksum: c1122a992c6cff70a7e56dfc2b7474534d48eb40b2cc75467cde0c6972e7597faf8e43acb4f45f93c2473645dfd803bcbc20960b57544dd1e4c96e77f72ba6fd
-  languageName: node
-  linkType: hard
-
-"use-ssr@npm:^1.0.22":
-  version: 1.0.24
-  resolution: "use-ssr@npm:1.0.24"
-  peerDependencies:
-    react: ^16.13.1 || ^17.0.0
-    react-dom: ^16.13.1 || ^17.0.0
-  checksum: 527c41649e2c7b98ad9e0cc2fea957cd98c6e55ec13000fed7dd68d44f23e07a6ab2b0ee543f69230efdccb61c5b066f0eeff4036b82b521621992d30e2bc012
   languageName: node
   linkType: hard
 
