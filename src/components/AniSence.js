@@ -5,6 +5,7 @@ import $ from "jquery";
 import _ from "lodash";
 
 export default function AniSence(props) {
+  let timer;
   const { children, setting = [], debug, fromStart = false } = props;
   const globalProgress = useSelector((state) => state?.global?.progress);
   const startProgress = useSelector((state) => state?.global?.startProgress);
@@ -17,14 +18,18 @@ export default function AniSence(props) {
   });
 
   useEffect(() => {
-    $(window).bind("resize", _.debounce(initTweenArr, 200));
+    $(window).bind("resize", initTweenArr);
     return () => {
-      $(window).unbind("resize", _.debounce(initTweenArr, 200));
+      $(window).unbind("resize", initTweenArr);
     };
   }, []);
 
   useEffect(() => {
-    initTweenArr();
+    setTweenArray([]);
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      initTweenArr();
+    }, 50);
   }, [JSON.stringify(setting)]);
 
   function getPosition(target) {
@@ -143,12 +148,12 @@ export default function AniSence(props) {
   const progress = (fromStart ? startProgress : globalProgress) / 100;
 
   if (!tweenArr?.length) {
-    return tweenTarget;
+    return children;
   }
 
   return (
     <Timeline
-      target={tweenTarget}
+      target={children}
       progress={progress}
       playState={"pause"}
       duration={100}

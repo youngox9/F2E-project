@@ -437,11 +437,14 @@ a {
     > .bk {
       display: block;
       width: 100%;
+      position: relative;
+      z-index: 2;
     }
     .light {
       position: absolute;
       top: 30%;
       width: 17%;
+      z-index: 1;
       &.light-1 {
         left: 13%;
       }
@@ -1059,8 +1062,12 @@ a {
       }
     }
     .brand {
+      margin-top: 2%;
       width: 45%;
       animation: bounce 1.2s 0s infinite both;
+      @media screen and (max-width: $md) {
+        margin-top: 0%;
+      }
       > img {
         width: 100%;
       }

@@ -2,15 +2,17 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "@/store";
 import $ from "jquery";
-
-import "@/styles/style.scss";
+import { gtag, install } from "ga-gtag";
 import { useEffect } from "react";
 
 import fb_meta_image from "/public/fb.png";
 
+import "@/styles/style.scss";
+
 function App({ Component, pageProps }) {
   useEffect(() => {
     window.$ = $;
+    install("G-J3EVKW411S");
   }, []);
   return (
     <Provider store={store}>
