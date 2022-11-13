@@ -158,7 +158,8 @@ export default function AniSence(props) {
       playState={"pause"}
       duration={100}
     >
-      {tweenArr.map((o, idx) => {
+      {tweenArr.map((obj, idx) => {
+        const o = _.omit(obj, ["start", "end", "type"]);
         return <Tween {...o} key={idx} />;
       })}
     </Timeline>
