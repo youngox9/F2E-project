@@ -7,6 +7,7 @@ import { Controls, PlayState, Timeline, Tween } from "react-gsap";
 import $ from "jquery";
 
 export default function ScrollTween(props) {
+  let timer;
   const { children, tween } = props;
 
   const dispatch = useDispatch();
@@ -19,9 +20,10 @@ export default function ScrollTween(props) {
   let sence;
 
   useEffect(() => {
-    $(window).bind("resize", () => {
-      init();
-    });
+    $(window).bind("resize", () => delayInit);
+    return () => {
+      $(window).unbind("resize", () => delayInit);
+    };
   }, []);
 
   useEffect(() => {
@@ -33,6 +35,13 @@ export default function ScrollTween(props) {
   const tweenTarget = React.cloneElement(children, {
     ref: elementRef,
   });
+
+  function delayInit() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      init();
+    }, 300);
+  }
 
   function init() {
     const ScrollMagic = require("scrollmagic");
