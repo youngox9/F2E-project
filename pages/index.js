@@ -8,7 +8,7 @@ import $ from "jquery";
 import { clsx } from "clsx";
 
 import ScrollTween from "@/components/ScrollTween";
-
+import LoadingMask from "@/components/LoadingMask";
 import AnimalSence from "@/components/AnimalSence";
 import DecorateSence from "@/components/DecorateSence";
 import Map from "@/components/Map";
@@ -42,6 +42,7 @@ export default function Banner(props) {
 
   return (
     <>
+      <LoadingMask />
       <Cursor />
       <a
         className="logo"

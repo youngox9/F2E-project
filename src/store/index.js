@@ -2,6 +2,8 @@ import { createStore, combineReducers } from "redux";
 // state
 const initState = {
   progress: 0,
+  isPC: true,
+  showLoading: true,
 };
 
 // reducer
@@ -13,12 +15,11 @@ const global = (state = initState, action) => {
         ...action,
       };
     }
-    case "SET_KV_PROGRESS": {
-      const { progress, event } = action;
+    case "SET_SHOW_LOADING": {
+      const { showLoading } = action;
       return {
         ...state,
-        progress,
-        event,
+        showLoading,
       };
     }
     default:
