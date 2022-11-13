@@ -16,6 +16,10 @@ export default function ScrollTween(props) {
 
   const elementRef = useRef();
 
+  const tweenTarget = React.cloneElement(children, {
+    ref: elementRef,
+  });
+
   let controller;
   let sence;
 
@@ -28,19 +32,15 @@ export default function ScrollTween(props) {
 
   useEffect(() => {
     if (elementRef?.current) {
-      init();
+      delayInit();
     }
   }, [elementRef?.current]);
-
-  const tweenTarget = React.cloneElement(children, {
-    ref: elementRef,
-  });
 
   function delayInit() {
     clearTimeout(timer);
     timer = setTimeout(() => {
       init();
-    }, 300);
+    }, 200);
   }
 
   function init() {

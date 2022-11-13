@@ -18,19 +18,23 @@ export default function AniSence(props) {
   });
 
   useEffect(() => {
-    $(window).bind("resize", initTweenArr);
+    $(window).bind("resize", delayInit);
     return () => {
-      $(window).unbind("resize", initTweenArr);
+      $(window).unbind("resize", delayInit);
     };
   }, []);
 
   useEffect(() => {
+    delayInit();
+  }, [JSON.stringify(setting)]);
+
+  function delayInit() {
     setTweenArray([]);
     clearTimeout(timer);
     timer = setTimeout(() => {
       initTweenArr();
     }, 200);
-  }, [JSON.stringify(setting)]);
+  }
 
   function getPosition(target) {
     const el = $(target)?.[0];
@@ -148,12 +152,12 @@ export default function AniSence(props) {
   const progress = (fromStart ? startProgress : globalProgress) / 100;
 
   if (!tweenArr?.length) {
-    return children;
+    return tweenTarget;
   }
 
   return (
     <Timeline
-      target={children}
+      target={tweenTarget}
       progress={progress}
       playState={"pause"}
       duration={100}
