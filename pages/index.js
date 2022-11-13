@@ -106,7 +106,11 @@ export default function Banner(props) {
           <div className="sence sence-1">
             <ScrollTween>
               <div className="tit">
-                <Tween target="img" {...tit_ani}>
+                <Tween
+                  target="img"
+                  from={{ opacity: 0, scale: 0.5 }}
+                  to={{ opacity: 1, scale: 1 }}
+                >
                   <img className="pc" src="/kv2_tit.svg" />
                   <img className="m" src="/kv2_tit_m.svg" />
                 </Tween>
@@ -162,7 +166,11 @@ export default function Banner(props) {
           <div className="sence sence-2">
             <ScrollTween>
               <div className="tit">
-                <Tween target="img" {...tit_ani}>
+                <Tween
+                  target="img"
+                  from={{ opacity: 0, scale: 0.5 }}
+                  to={{ opacity: 1, scale: 1 }}
+                >
                   <img className="pc" src="/kv3_tit.svg" />
                   <img className="m" src="/kv3_tit_m.svg" />
                 </Tween>
@@ -241,7 +249,8 @@ export default function Banner(props) {
               <div className="tit">
                 <Tween
                   target={"img"}
-                  {...tit_ani}
+                  from={{ opacity: 0, scale: 0.5 }}
+                  to={{ opacity: 1, scale: 1 }}
                   // ease="elastic.out(0.2, 0.1)"
                 >
                   <img className="pc" src="/kv4_tit.svg" />
@@ -446,7 +455,11 @@ export default function Banner(props) {
           <div className="sence sence-6">
             <ScrollTween>
               <div className="tit">
-                <Tween target="img" {...tit_ani}>
+                <Tween
+                  target="img"
+                  from={{ opacity: 0, scale: 0.5 }}
+                  to={{ opacity: 1, scale: 1 }}
+                >
                   <img className="pc" src="/kv7_tit.svg" />
                   <img className="m" src="/kv7_tit_m.svg" />
                 </Tween>
@@ -490,7 +503,11 @@ export default function Banner(props) {
           <div className="sence sence-7">
             <ScrollTween>
               <div className="tit">
-                <Tween target="img" {...tit_ani}>
+                <Tween
+                  target="img"
+                  from={{ opacity: 0, scale: 0.5 }}
+                  to={{ opacity: 1, scale: 1 }}
+                >
                   <img className="pc" src="/kv8_tit.svg" />
                   <img className="m" src="/kv8_tit_m.svg" />
                 </Tween>
