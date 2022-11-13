@@ -16,7 +16,7 @@ const CursorItem = styled.div`
   background: url("/cursor/cursor_2x.png") center/contain no-repeat;
 `;
 
-export default function Banner(props) {
+export default function Cursor(props) {
   const {} = props;
 
   const mousePosition = useMousePosition();

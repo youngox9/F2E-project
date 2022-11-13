@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Timeline, Tween } from "react-gsap";
 import _ from "lodash";
 
-export default function CloudLeft(props) {
+export default function DecorateSence(props) {
   const { children, t } = props;
 
   const el = useRef();

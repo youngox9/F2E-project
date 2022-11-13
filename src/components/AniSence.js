@@ -29,7 +29,7 @@ export default function AniSence(props) {
     clearTimeout(timer);
     timer = setTimeout(() => {
       initTweenArr();
-    }, 50);
+    }, 100);
   }, [JSON.stringify(setting)]);
 
   function getPosition(target) {

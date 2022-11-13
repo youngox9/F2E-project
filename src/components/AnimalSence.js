@@ -5,7 +5,7 @@ import Sprite from "@/components/Sprite";
 import AniSence from "@/components/AniSence";
 import ScrollTween from "@/components/ScrollTween";
 
-export default function Banner(props) {
+export default function AnimalSence(props) {
   const {} = props;
 
   const {

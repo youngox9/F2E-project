@@ -497,7 +497,11 @@ export default function Banner(props) {
             </ScrollTween>
             <ScrollTween>
               <div className="sponsor">
-                <Tween stagger={0.2} {...tit_ani}>
+                <Tween
+                  stagger={0.2}
+                  from={{ opacity: 0, scale: 0 }}
+                  to={{ opacity: 1, scale: 1 }}
+                >
                   <div className="sponsor-item">
                     <img src="/main/logo_blockstudio.png" />
                     <a className="border-btn">#版塊設計</a>

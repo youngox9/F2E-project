@@ -6,7 +6,7 @@ import { Controls, PlayState, Timeline, Tween } from "react-gsap";
 // import scrollmagic from "scrollmagic";
 import $ from "jquery";
 
-export default function Banner(props) {
+export default function ScrollTween(props) {
   const { children, tween } = props;
 
   const dispatch = useDispatch();

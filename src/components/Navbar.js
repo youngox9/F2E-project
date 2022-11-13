@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { clsx } from "clsx";
 
-export default function Banner(props) {
+export default function Navbar(props) {
   const {} = props;
 
   const [isOpen, setIsOpen] = useState(false);
