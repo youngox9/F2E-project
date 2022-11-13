@@ -1,16 +1,24 @@
 import { createStore, combineReducers } from "redux";
 // state
 const initState = {
-  otherState: "otherState",
-  todoList: ["first"],
+  progress: 0,
 };
 
 // reducer
-const reducer = (state = initState, action) => {
+const global = (state = initState, action) => {
   switch (action.type) {
-    case "ADD_TODOLIST": {
+    case "SET_SCROLL_PROGRESS": {
       return {
         ...state,
+        ...action,
+      };
+    }
+    case "SET_KV_PROGRESS": {
+      const { progress, event } = action;
+      return {
+        ...state,
+        progress,
+        event,
       };
     }
     default:
@@ -19,7 +27,7 @@ const reducer = (state = initState, action) => {
 };
 
 const combine = combineReducers({
-  reducer,
+  global,
 });
 
 const store = createStore(combine);
