@@ -419,7 +419,7 @@ export default function Banner(props) {
           <ScrollTween start="top 20%">
             <div className="sence sence-5">
               <Tween
-                from={{ rotation: 45, y: "-200%" }}
+                from={{ rotation: 45, y: "-300%" }}
                 to={{
                   rotation: 0,
                   y: "0%",

@@ -490,7 +490,7 @@ a {
 }
 .sence {
   position: relative;
-  z-index: 2;
+  z-index: 4;
   .tit {
     display: block;
     margin: 0 auto;
@@ -506,7 +506,7 @@ a {
   &.sence-1 {
     padding: 2.5rem 0 22.5rem 0;
     @media screen and (max-width: $md) {
-      padding: 3.75rem 0 3.75rem 0;
+      padding: 0 0 3.75rem 0;
     }
     .tit {
       width: 60%;
@@ -535,8 +535,18 @@ a {
         @media screen and (max-width: $md) {
           padding: 0;
         }
+        &:nth-child(1) > .quest-box {
+          transform-origin: right bottom;
+        }
+        &:nth-child(2) > .quest-box {
+          transform-origin: center bottom;
+        }
+        &:nth-child(3) > .quest-box {
+          transform-origin: left bottom;
+        }
         .quest-box {
           width: 100%;
+
           > p {
             text-align: center;
             font-weight: 700;
@@ -659,6 +669,7 @@ a {
             flex: 0 20%;
             margin-right: 0;
             margin-left: 2.5rem;
+
             @media screen and (max-width: $md) {
               margin-left: 0;
             }
@@ -853,6 +864,7 @@ a {
       letter-spacing: 0.05em;
       color: var(--highlight-1);
       text-align: center;
+      transform-origin: center top;
       @media screen and (max-width: $md) {
         font-size: 28px;
       }
@@ -1093,7 +1105,6 @@ a {
 }
 
 .start-content-sence {
-  pointer-events: none;
   position: relative;
   width: 100%;
   height: 100vh;
@@ -1125,8 +1136,8 @@ a {
       align-items: center;
       @media screen and (max-width: $md) {
         height: 100%;
-        // justify-content: center;
-        padding-top: 120px;
+
+        padding-top: 18%;
       }
     }
     .brand {
@@ -1134,6 +1145,7 @@ a {
       width: 45%;
       animation: bounce 1.2s 0s infinite both;
       @media screen and (max-width: $md) {
+        width: 56%;
         margin-top: 0%;
       }
       > img {
@@ -1143,12 +1155,16 @@ a {
     .subtit {
       width: 23%;
       margin-bottom: 8%;
+      @media screen and (max-width: $md) {
+        width: 38%;
+        margin-bottom: 4%;
+      }
     }
     .flex-row {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      padding: 0 0%;
+      padding: 0 12%;
       flex-wrap: wrap;
       .flex-col {
         flex: 0 33.333%;
@@ -1172,6 +1188,9 @@ a {
           padding: 0.25rem 1.75rem;
           border-radius: 2.5rem;
           vertical-align: middle;
+          @media screen and (max-width: $md) {
+            margin-bottom: 4px;
+          }
           &:before {
             content: "";
             background: url("/icon_user.svg") center/contain no-repeat;
@@ -1193,7 +1212,7 @@ a {
   width: 100%;
   left: 0;
   top: 0;
-  z-index: 4;
+  z-index: 5;
   .animals {
     position: absolute;
     width: 100%;
