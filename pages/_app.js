@@ -3,17 +3,29 @@ import { Provider } from "react-redux";
 import store from "@/store";
 import $ from "jquery";
 import { gtag, install } from "ga-gtag";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { ScrollTrigger as ScrollTriggerPlugin } from "gsap/dist/ScrollTrigger";
+import { TextPlugin } from "gsap/dist/TextPlugin";
+
+import gsap from "gsap";
 
 import fb_meta_image from "/public/fb.png";
 
 import "@/styles/style.scss";
 
+gsap.registerPlugin(ScrollTriggerPlugin);
+gsap.registerPlugin(TextPlugin);
+
 function App({ Component, pageProps }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     window.$ = $;
     install("G-J3EVKW411S");
+
+    setIsLoaded(true);
   }, []);
+
   return (
     <Provider store={store}>
       <Head>

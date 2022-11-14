@@ -4,10 +4,6 @@ import { Timeline, Tween } from "react-gsap";
 import _ from "lodash";
 
 export default function DecorateSence(props) {
-  const { children, t } = props;
-
-  const el = useRef();
-
   const { startProgress = 0.1, isPC = true } = useSelector(
     (state) => state?.global || {}
   );
@@ -16,15 +12,21 @@ export default function DecorateSence(props) {
     <>
       <div className="decorate-sence">
         <div className="l">
-          <Tween
-            from={{ opacity: 1, scale: 1 }}
-            to={{ opacity: 0.5, scale: 3, right: "100%", top: "100%" }}
+          <Timeline
+            target={
+              <img className="cloud cloud-l" src="/bg/bg_decorate_01.png" />
+            }
             repeat={-1}
             progress={(startProgress + 6) / 40}
             playState={"pause"}
+            duration={100}
           >
-            <img className="cloud cloud-l" src="/bg/bg_decorate_01.png" />
-          </Tween>
+            <Tween
+              from={{ scale: 2, opacity: 0 }}
+              to={{ scale: 1, opacity: 1, right: "100%", bottom: "-20%" }}
+            />
+            <Tween to={{ opacity: 0 }} stagger={50} />
+          </Timeline>
 
           {isPC && (
             <Timeline
@@ -63,15 +65,15 @@ export default function DecorateSence(props) {
         </div>
         <div className="r">
           <Tween
-            from={{ opacity: 1, scale: 1 }}
+            from={{ opacity: 0, scale: 1.2 }}
             to={{
-              opacity: 0.5,
-              scale: 2,
-              left: "100%",
-              top: "100%",
+              opacity: 1,
+              scale: 0.8,
+              left: "120%",
+              bottom: "-20%",
             }}
             repeat={-1}
-            progress={(startProgress + 5) / 60}
+            progress={(startProgress + 5) / 40}
             playState={"pause"}
           >
             <img className="cloud cloud-r" src="/bg/bg_decorate_05.png" />

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Timeline, Tween } from "react-gsap";
 import $ from "jquery";
 import _ from "lodash";
+import { v4 as uuidv4 } from "uuid";
 
 export default function AniSence(props) {
   let timer;
@@ -51,7 +52,8 @@ export default function AniSence(props) {
 
   function inserDelay(arr) {
     return arr.reduce((previous, curr, idx) => {
-      const { start, end } = curr;
+      const currObj = { ...curr, index: uuidv4() };
+      const { start, end } = currObj;
       const prev = arr?.[idx - 1];
       const next = arr?.[idx + 1];
 
@@ -67,8 +69,8 @@ export default function AniSence(props) {
           },
           ...result,
         ];
-      } else if (prev && prev.end !== curr.start) {
-        const delay = curr.start - prev.end;
+      } else if (prev && prev.end !== currObj.start) {
+        const delay = currObj.start - prev.end;
         const s = prev.end;
         const e = prev.end + delay;
         const duration = e - s;
@@ -84,11 +86,11 @@ export default function AniSence(props) {
         const duration = e - s;
         result = [
           ...result,
-          curr,
+          currObj,
           { type: "no-next", delay, start: s, end: e, duration },
         ];
       } else {
-        result = [...result, curr];
+        result = [...result, currObj];
       }
       return result;
     }, []);

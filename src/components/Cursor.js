@@ -1,9 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { clsx } from "clsx";
-import Sprite from "@/components/Sprite";
-import AniSence from "@/components/AniSence";
-import ScrollTween from "@/components/ScrollTween";
 import styled from "styled-components";
 import { useMousePosition } from "@/hook";
 
@@ -21,11 +17,7 @@ export default function Cursor(props) {
 
   const mousePosition = useMousePosition();
 
-  const {
-    startProgress,
-    isMobile = false,
-    isPC = false,
-  } = useSelector((state) => state?.global || {});
+  const { isPC = false } = useSelector((state) => state?.global || {});
 
   return (
     isPC && (

@@ -1,10 +1,7 @@
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import styled from "styled-components";
-import { Controller, Scene } from "react-scrollmagic";
-import { Controls, PlayState, Timeline, Tween } from "react-gsap";
-import $ from "jquery";
+import { Tween, Timeline } from "react-gsap";
 import { clsx } from "clsx";
 
 import ScrollTween from "@/components/ScrollTween";
@@ -19,7 +16,7 @@ import { useScroll } from "@/hook";
 export default function Banner(props) {
   const {} = props;
   const dispatch = useDispatch();
-  const globalProgress = useSelector((state) => state?.global?.progress);
+  const { progress = 0 } = useSelector((state) => state?.global || {});
 
   const { startProgress, isPC } = useSelector((state) => state?.global);
 
@@ -27,21 +24,9 @@ export default function Banner(props) {
     dispatch({ type: "SET_SCROLL_PROGRESS", ...config });
   });
 
-  // from={{ opacity: 0, scale: 0.5 }}
-  // to={{ opacity: 1, scale: 1 }}
-
-  const tit_ani = isPC
-    ? {
-        from: { opacity: 0, scale: 0.5 },
-        to: { opacity: 1, scale: 1 },
-      }
-    : {
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-      };
-
   return (
     <>
+      <div className="global-progress">{progress}</div>
       <LoadingMask />
       <Cursor />
       <a
@@ -51,7 +36,7 @@ export default function Banner(props) {
         rel="noreferrer"
       >
         <img
-          className={clsx("pc", globalProgress > 10 && "active")}
+          className={clsx("pc", progress > 10 && "active")}
           src="logo/logo.png"
         />
         <img className="m" src="logo/logo_text.png" />
@@ -178,17 +163,20 @@ export default function Banner(props) {
             </ScrollTween>
             <ScrollTween>
               <div className="flex">
-                <Tween
-                  target=".btn"
-                  stagger={0.1}
-                  from={{ opacity: 0, scale: 0 }}
-                  to={{ opacity: 1, scale: 1 }}
-                >
-                  <div className="flex-col m">
+                <div className="flex-col m">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <img src="/character/character_f2e.gif" />
-                  </div>
+                  </Tween>
+                </div>
 
-                  <div className="flex-col">
+                <div className="flex-col">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <a
                       className="f2e-btn"
                       href="https://2022.thef2e.com/"
@@ -201,9 +189,14 @@ export default function Banner(props) {
                       </div>
                       <p>前端工程師</p>
                     </a>
-                  </div>
+                  </Tween>
+                </div>
 
-                  <div className="flex-col">
+                <div className="flex-col">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <a
                       className="f2e-btn"
                       href="https://2022.thef2e.com/"
@@ -216,17 +209,32 @@ export default function Banner(props) {
                       </div>
                       <p>UI設計師</p>
                     </a>
-                  </div>
+                  </Tween>
+                </div>
 
-                  <div className="flex-col m">
+                <div className="flex-col m">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <img src="/character/character_ui.gif" />
-                  </div>
+                  </Tween>
+                </div>
 
-                  <div className="flex-col m">
+                <div className="flex-col m">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <img src="/character/character_team.gif" />
-                  </div>
+                  </Tween>
+                </div>
 
-                  <div className="flex-col">
+                <div className="flex-col">
+                  <Tween
+                    from={{ opacity: 0, scale: 0 }}
+                    to={{ opacity: 1, scale: 1 }}
+                  >
                     <a
                       className="f2e-btn"
                       href="https://2022.thef2e.com/"
@@ -239,8 +247,8 @@ export default function Banner(props) {
                       </div>
                       <p>團體組(UI+前端)</p>
                     </a>
-                  </div>
-                </Tween>
+                  </Tween>
+                </div>
               </div>
             </ScrollTween>
           </div>
@@ -261,194 +269,170 @@ export default function Banner(props) {
 
             <div className="week-list">
               <ScrollTween>
-                <div className="week-item">
-                  <Tween
-                    from={{ opacity: 0, scaleY: 0.5, x: "-25%" }}
-                    to={{ opacity: 1, scaleY: 1, x: "0%" }}
-                  >
-                    <div className="week-item-box">
-                      <div className="week-item-pic">
-                        <img src="/main/week_1.png" />
-                      </div>
-                      <div className="week-item-content">
-                        <h4>WEEK 1</h4>
-                        <p>The F2E 活動網站設計</p>
-                        <div className="inline-btns">
-                          <a className="border-btn">Parallax Scrolling</a>
-                          <a className="border-btn">#版塊設計</a>
-                        </div>
-                        <a
-                          className="border-btn link"
-                          href="https://2022.thef2e.com/news/week1"
-                          target={"_blank"}
-                          rel="noreferrer"
-                        >
-                          查看關卡細節
-                        </a>
-                      </div>
+                <Tween
+                  from={{ opacity: 0, scale: 0.5, x: "-25%" }}
+                  to={{ opacity: 1, scale: 1, x: "0%" }}
+                >
+                  <div className="week-item-box">
+                    <div className="week-item-pic">
+                      <img src="/main/week_1.png" />
                     </div>
-                  </Tween>
-                </div>
+                    <div className="week-item-content">
+                      <h4>WEEK 1</h4>
+                      <p>The F2E 活動網站設計</p>
+                      <div className="inline-btns">
+                        <a className="border-btn">Parallax Scrolling</a>
+                        <a className="border-btn">#版塊設計</a>
+                      </div>
+                      <a
+                        className="border-btn link"
+                        href="https://2022.thef2e.com/news/week1"
+                        target={"_blank"}
+                        rel="noreferrer"
+                      >
+                        查看關卡細節
+                      </a>
+                    </div>
+                  </div>
+                </Tween>
               </ScrollTween>
               <ScrollTween>
-                <div className="week-item">
-                  <Tween
-                    from={{ opacity: 0, scaleY: 0.5, x: "25%" }}
-                    to={{ opacity: 1, scaleY: 1, x: "0%" }}
-                  >
-                    <div className="week-item-box week-item-right">
-                      <div className="week-item-pic m">
-                        <img src="/main/week_2.png" />
-                      </div>
-                      <div className="week-item-content">
-                        <h4>WEEK 2</h4>
-                        <p>今晚，我想來點點簽</p>
-                        <div className="inline-btns">
-                          <a className="border-btn">Canvas</a>
-                          <a className="border-btn">#凱鈿行動科技</a>
-                        </div>
-                        <a
-                          className="border-btn link"
-                          href="https://2022.thef2e.com/news/week2"
-                          target={"_blank"}
-                          rel="noreferrer"
-                        >
-                          查看關卡細節
-                        </a>
-                      </div>
-                      <div className="week-item-pic pc">
-                        <img src="/main/week_2.png" />
-                      </div>
+                <Tween
+                  from={{ opacity: 0, scale: 0.5, x: "25%" }}
+                  to={{ opacity: 1, scale: 1, x: "0%" }}
+                >
+                  <div className="week-item-box week-item-right">
+                    <div className="week-item-pic m">
+                      <img src="/main/week_2.png" />
                     </div>
-                  </Tween>
-                </div>
+                    <div className="week-item-content">
+                      <h4>WEEK 2</h4>
+                      <p>今晚，我想來點點簽</p>
+                      <div className="inline-btns">
+                        <a className="border-btn">Canvas</a>
+                        <a className="border-btn">#凱鈿行動科技</a>
+                      </div>
+                      <a
+                        className="border-btn link"
+                        href="https://2022.thef2e.com/news/week2"
+                        target={"_blank"}
+                        rel="noreferrer"
+                      >
+                        查看關卡細節
+                      </a>
+                    </div>
+                    <div className="week-item-pic pc">
+                      <img src="/main/week_2.png" />
+                    </div>
+                  </div>
+                </Tween>
               </ScrollTween>
               <ScrollTween>
-                <div className="week-item">
-                  <Tween
-                    from={{ opacity: 0, scaleY: 0.5, x: "-25%" }}
-                    to={{ opacity: 1, scaleY: 1, x: "0%" }}
-                  >
-                    <div className="week-item-box">
-                      <div className="week-item-pic">
-                        <img src="/main/week_3.png" />
-                      </div>
-                      <div className="week-item-content">
-                        <h4>WEEK 3</h4>
-                        <p>Scrum 新手村</p>
-                        <div className="inline-btns">
-                          <a className="border-btn">JS draggable</a>
-                          <a className="border-btn">#鈦坦科技</a>
-                        </div>
-                        <a
-                          className="border-btn link"
-                          href="https://2022.thef2e.com/news/week3"
-                          target={"_blank"}
-                          rel="noreferrer"
-                        >
-                          查看關卡細節
-                        </a>
-                      </div>
+                <Tween
+                  from={{ opacity: 0, scale: 0.5, x: "-25%" }}
+                  to={{ opacity: 1, scale: 1, x: "0%" }}
+                >
+                  <div className="week-item-box">
+                    <div className="week-item-pic">
+                      <img src="/main/week_3.png" />
                     </div>
-                  </Tween>
-                </div>
+                    <div className="week-item-content">
+                      <h4>WEEK 3</h4>
+                      <p>Scrum 新手村</p>
+                      <div className="inline-btns">
+                        <a className="border-btn">JS draggable</a>
+                        <a className="border-btn">#鈦坦科技</a>
+                      </div>
+                      <a
+                        className="border-btn link"
+                        href="https://2022.thef2e.com/news/week3"
+                        target={"_blank"}
+                        rel="noreferrer"
+                      >
+                        查看關卡細節
+                      </a>
+                    </div>
+                  </div>
+                </Tween>
               </ScrollTween>
             </div>
           </div>
           <div className="sence sence-4">
             <div className="flex-row">
-              <ScrollTween
-                tween={() => {
-                  return (
-                    <Tween
-                      from={{ scale: 0.5, opacity: 0, rotation: -45 }}
-                      to={{ scale: 1, opacity: 1, rotation: 0 }}
-                      stagger={3}
-                    />
-                  );
-                }}
-              >
-                <div className="flex-col">
-                  <img className="icon" src="/date_icon_1.svg" />
-                  <h4>SIGN UP</h4>
-                  <div className="date">10/13 - 11/6</div>
-                  <p>截止前可修改報名組別</p>
-                </div>
+              <ScrollTween>
+                <Tween
+                  from={{ scale: 0.5, opacity: 0, rotation: -45 }}
+                  to={{ scale: 1, opacity: 1, rotation: 0 }}
+                >
+                  <div className="flex-col">
+                    <img className="icon" src="/date_icon_1.svg" />
+                    <h4>SIGN UP</h4>
+                    <div className="date">10/13 - 11/6</div>
+                    <p>截止前可修改報名組別</p>
+                  </div>
+                </Tween>
               </ScrollTween>
-              <ScrollTween
-                tween={() => {
-                  return (
-                    <Tween
-                      from={{ scale: 0.5, opacity: 0, rotation: 0 }}
-                      to={{
-                        scale: 1,
-                        opacity: 1,
-                        rotation: 0,
-                        delay: 0.3,
-                      }}
-                      stagger={3}
-                    />
-                  );
-                }}
-              >
-                <div className="flex-col">
-                  <img className="icon" src="/date_icon_2.svg" />
-                  <h4>START</h4>
-                  <div className="date">10/13 - 11/6</div>
-                  <p>
-                    10/31(一) UI、團體組開賽
-                    <br />
-                    11/7(一) 前端組開賽
-                  </p>
-                </div>
+              <ScrollTween>
+                <Tween
+                  from={{ scale: 0.5, opacity: 0, rotation: 0 }}
+                  to={{ scale: 1, opacity: 1, rotation: 0 }}
+                >
+                  <div className="flex-col">
+                    <img className="icon" src="/date_icon_2.svg" />
+                    <h4>START</h4>
+                    <div className="date">10/13 - 11/6</div>
+                    <p>
+                      10/31(一) UI、團體組開賽
+                      <br />
+                      11/7(一) 前端組開賽
+                    </p>
+                  </div>
+                </Tween>
               </ScrollTween>
-              <ScrollTween
-                tween={() => {
-                  return (
-                    <Tween
-                      from={{ scale: 0.5, opacity: 0, rotation: 45 }}
-                      to={{
-                        scale: 1,
-                        opacity: 1,
-                        rotation: 0,
-                        delay: 0.3,
-                      }}
-                      stagger={3}
-                    />
-                  );
-                }}
-              >
-                <div className="flex-col">
-                  <img className="icon" src="/date_icon_3.svg" />
-                  <h4>UPLOAD</h4>
-                  <div className="date">10/13 - 11/6</div>
-                  <p>
-                    依賽程登錄作品
-                    <br />
-                    <span>額外競賽： 主題豐厚獎金等著你</span>
-                  </p>
-                </div>
+              <ScrollTween>
+                <Tween
+                  from={{ scale: 0.5, opacity: 0, rotation: 45 }}
+                  to={{ scale: 1, opacity: 1, rotation: 0 }}
+                >
+                  <div className="flex-col">
+                    <img className="icon" src="/date_icon_3.svg" />
+                    <h4>UPLOAD</h4>
+                    <div className="date">10/13 - 11/6</div>
+                    <p>
+                      依賽程登錄作品
+                      <br />
+                      <span>額外競賽： 主題豐厚獎金等著你</span>
+                    </p>
+                  </div>
+                </Tween>
               </ScrollTween>
             </div>
+            <ScrollTween>
+              <Tween from={{ scale: 0 }} to={{ scale: 1 }}>
+                <div className="middle-line">
+                  <img src="/gate_2.svg" />
+                </div>
+              </Tween>
+            </ScrollTween>
           </div>
 
-          <ScrollTween>
+          <ScrollTween start="top 20%">
             <div className="sence sence-5">
               <Tween
-                from={{
-                  opacity: 0,
-                  rotation: 180,
-                  y: "-50%",
-                  scale: 2,
+                from={{ rotation: 45, y: "-200%" }}
+                to={{
+                  rotation: 0,
+                  y: "0%",
+                  text: "區區修煉已經無法滿足了嗎？",
                 }}
-                to={{ opacity: 1, rotation: 0, y: "0%", scale: 1 }}
               >
-                <h4>
-                  區區修煉
-                  <br className="m" />
-                  已經無法滿足了嗎？
-                </h4>
+                <h4 className="pc"></h4>
               </Tween>
+              <h4 className="m">
+                區區修煉
+                <br />
+                已經無法滿足了嗎？
+              </h4>
             </div>
           </ScrollTween>
 
