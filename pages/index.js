@@ -26,7 +26,7 @@ export default function Banner(props) {
 
   return (
     <>
-      <div className="global-progress">{progress}</div>
+      {/* <div className="global-progress">{progress}</div> */}
       <LoadingMask />
       <Cursor />
       <a
