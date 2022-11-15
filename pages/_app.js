@@ -17,13 +17,9 @@ gsap.registerPlugin(ScrollTriggerPlugin);
 gsap.registerPlugin(TextPlugin);
 
 function App({ Component, pageProps }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-
   useEffect(() => {
     window.$ = $;
     install("G-J3EVKW411S");
-
-    setIsLoaded(true);
   }, []);
 
   return (

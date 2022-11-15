@@ -15,7 +15,7 @@ export const useThrottle = (callback = () => {}, value = [], time = 100) => {
   );
 };
 
-export const useScroll = (callback = () => {}) => {
+export const useBrowserInfo = (callback = () => {}) => {
   useEffect(() => {
     $(window).bind("scroll resize", onScroll);
     onScroll();

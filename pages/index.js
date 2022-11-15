@@ -11,7 +11,7 @@ import DecorateSence from "@/components/DecorateSence";
 import Map from "@/components/Map";
 import Navbar from "@/components/Navbar";
 import Cursor from "@/components/Cursor";
-import { useScroll } from "@/hook";
+import { useBrowserInfo } from "@/hook";
 
 export default function Banner(props) {
   const {} = props;
@@ -20,7 +20,7 @@ export default function Banner(props) {
 
   const { startProgress, isPC } = useSelector((state) => state?.global);
 
-  useScroll((config) => {
+  useBrowserInfo((config) => {
     dispatch({ type: "SET_SCROLL_PROGRESS", ...config });
   });
 

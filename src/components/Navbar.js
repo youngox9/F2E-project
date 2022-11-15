@@ -6,7 +6,7 @@ export default function Navbar(props) {
   const {} = props;
 
   const [isOpen, setIsOpen] = useState(false);
-  const globalProgress = useSelector((state) => state?.global?.progress);
+  const { progress } = useSelector((state) => state?.global || {});
 
   return (
     <>

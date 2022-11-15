@@ -1,11 +1,7 @@
-import * as ReactDOM from "react-dom";
-import React, { useEffect, useCallback, useRef, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Controller, Scene } from "react-scrollmagic";
-import { Controls, PlayState, Timeline, Tween } from "react-gsap";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 // import scrollmagic from "scrollmagic";
 import { useThrottle } from "@/hook";
-import $ from "jquery";
 import _ from "lodash";
 
 export default function Sprite(props) {
