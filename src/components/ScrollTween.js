@@ -7,9 +7,9 @@ export default function ScrollTween(props) {
 
   return (
     <ScrollTrigger
-      start="bottom 100%"
+      start="bottom 95%"
       end="bottom 70%"
-      scrub={1}
+      scrub={0.5}
       // markers
       {...props}
     >

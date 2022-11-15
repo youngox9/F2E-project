@@ -219,7 +219,7 @@ export default function AnimalSence(props) {
             setting={[
               {
                 start: ".sence-8",
-                duration: 10,
+                duration: 5,
                 from: { opacity: 0, y: "100%" },
                 to: { opacity: 1, y: "0%" },
               },
@@ -230,7 +230,7 @@ export default function AnimalSence(props) {
                 setting={[
                   {
                     start: ".sence-8",
-                    duration: 7,
+                    duration: 8,
                   },
                   {
                     duration: 5,
@@ -247,7 +247,7 @@ export default function AnimalSence(props) {
                 setting={[
                   {
                     start: ".sence-8",
-                    duration: 7,
+                    duration: 8,
                   },
                   {
                     duration: 5,

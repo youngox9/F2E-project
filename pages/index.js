@@ -419,23 +419,26 @@ export default function Banner(props) {
             </ScrollTween>
           </div>
 
-          <ScrollTween start="top 20%">
+          <ScrollTween start="top 50%">
             <div className="sence sence-5">
-              <Tween
-                from={{ rotation: 45, y: "-300%" }}
-                to={{
-                  rotation: 0,
-                  y: "0%",
-                  text: "區區修煉已經無法滿足了嗎？",
-                }}
-              >
-                <h4 className="pc"></h4>
-              </Tween>
-              <h4 className="m">
-                區區修煉
-                <br />
-                已經無法滿足了嗎？
-              </h4>
+              {isPC ? (
+                <Tween
+                  from={{ rotation: 45, y: "-300%" }}
+                  to={{
+                    rotation: 0,
+                    y: "0%",
+                    text: "區區修煉已經無法滿足了嗎？",
+                  }}
+                >
+                  <h4 className="pc"></h4>
+                </Tween>
+              ) : (
+                <h4 className="m">
+                  區區修煉
+                  <br />
+                  已經無法滿足了嗎？
+                </h4>
+              )}
             </div>
           </ScrollTween>
 
