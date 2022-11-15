@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import { ScrollTrigger } from "react-gsap";
 // import scrollmagic from "scrollmagic";
@@ -9,8 +9,8 @@ export default function ScrollTween(props) {
   return (
     <ScrollTrigger
       start="bottom 100%"
-      end="center center"
-      scrub={0.4}
+      end="bottom 70%"
+      scrub={1}
       // markers
       {...props}
     >

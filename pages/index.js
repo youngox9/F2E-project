@@ -101,51 +101,54 @@ export default function Banner(props) {
                 </Tween>
               </div>
             </ScrollTween>
-            <ScrollTween>
-              <div className="flex">
-                <div className="flex-col">
-                  <Tween
-                    target=".quest-box"
-                    from={{ opacity: 0, y: "50%", scale: 0 }}
-                    to={{ opacity: 1, y: "0%", scale: 1 }}
-                  >
+
+            <div className="flex">
+              <ScrollTween>
+                <Tween
+                  target=".quest-box"
+                  from={{ opacity: 0, y: "50%", scale: 0 }}
+                  to={{ opacity: 1, y: "0%", scale: 1 }}
+                >
+                  <div className="flex-col">
                     <div className="quest-box">
                       <p>羨慕別人的酷酷網頁動畫？</p>
                       <img className="pc" src="/main/question_1.png" />
                       <img className="m" src="/main/question_1_m.png" />
                     </div>
-                  </Tween>
-                </div>
-
-                <div className="flex-col">
-                  <Tween
-                    target=".quest-box"
-                    from={{ opacity: 0, y: "50%", scale: 0 }}
-                    to={{ opacity: 1, y: "0%", scale: 1 }}
-                  >
+                  </div>
+                </Tween>
+              </ScrollTween>
+              <ScrollTween>
+                <Tween
+                  target=".quest-box"
+                  from={{ opacity: 0, y: "50%", scale: 0 }}
+                  to={{ opacity: 1, y: "0%", scale: 1 }}
+                >
+                  <div className="flex-col">
                     <div className="quest-box">
                       <p>滿足不了同事的許願？</p>
                       <img className="pc" src="/main/question_2.png" />
                       <img className="m" src="/main/question_2_m.png" />
                     </div>
-                  </Tween>
-                </div>
-
-                <div className="flex-col">
-                  <Tween
-                    target=".quest-box"
-                    from={{ opacity: 0, y: "50%", scale: 0 }}
-                    to={{ opacity: 1, y: "0%", scale: 1 }}
-                  >
+                  </div>
+                </Tween>
+              </ScrollTween>
+              <ScrollTween>
+                <Tween
+                  target=".quest-box"
+                  from={{ opacity: 0, y: "50%", scale: 0 }}
+                  to={{ opacity: 1, y: "0%", scale: 1 }}
+                >
+                  <div className="flex-col">
                     <div className="quest-box">
                       <p>動畫技能樹太雜無從下手？</p>
                       <img className="pc" src="/main/question_3.png" />
                       <img className="m" src="/main/question_3_m.png" />
                     </div>
-                  </Tween>
-                </div>
-              </div>
-            </ScrollTween>
+                  </div>
+                </Tween>
+              </ScrollTween>
+            </div>
           </div>
 
           <div className="sence sence-2">
