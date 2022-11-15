@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clsx } from "clsx";
+import { createGlobalStyle } from "styled-components";
+import { Tween } from "react-gsap";
 
 export async function waitForFontLoad(font = "Gen Jyuu Gothic") {
   let timer = null;
@@ -23,6 +25,14 @@ export async function waitForFontLoad(font = "Gen Jyuu Gothic") {
   });
 }
 
+const GlobalStyle = createGlobalStyle`
+  html, body {
+   position: fixed;
+  }
+`;
+
+const LOAD_TIME = 2.5;
+
 export default function Loading(props) {
   const dispatch = useDispatch();
   const showLoading = useSelector((state) => state?.global?.showLoading);
@@ -31,7 +41,19 @@ export default function Loading(props) {
     waitForFontLoad();
     setTimeout(() => {
       dispatch({ type: "SET_SHOW_LOADING", showLoading: false });
-    }, 2500);
+    }, LOAD_TIME * 1000);
   }, []);
-  return <div className={clsx("loading", !showLoading && "hidden")} />;
+  return (
+    <>
+      {showLoading ? <GlobalStyle /> : null}
+      <div className={clsx("loading", !showLoading && "hidden")}>
+        <img src="/main/all.svg" />
+        <div className="progress-bar">
+          <Tween to={{ x: "0%" }} duration={LOAD_TIME} ease="ease-in-out">
+            <span></span>
+          </Tween>
+        </div>
+      </div>
+    </>
+  );
 }

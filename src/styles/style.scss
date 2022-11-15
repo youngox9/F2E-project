@@ -109,9 +109,42 @@ a {
   width: 100%;
   height: 100%;
   z-index: 99999;
-  background: url("/logo/logo.png") var(--secondary-1) center/240px auto
-    no-repeat;
+  // background: url("/logo/logo.png") var(--secondary-1) center/240px auto
+  //   no-repeat;
   transition: 0.3s ease all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: var(--secondary-1);
+  > img {
+    width: 240px;
+    @media screen and (max-width: $md) {
+      width: 190px;
+    }
+  }
+  .progress-bar {
+    border-radius: 20px;
+    height: 12px;
+    width: 466px;
+    height: 16px;
+    border: 1px solid var(--primary-1);
+    position: relative;
+    overflow: hidden;
+    @media screen and (max-width: $md) {
+      width: 250px;
+      height: 10px;
+    }
+    > span {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      background-color: var(--primary-1);
+      transform: translate(-100%, 0);
+    }
+  }
   &.hidden {
     opacity: 0;
     visibility: hidden;
